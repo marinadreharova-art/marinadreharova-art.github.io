@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Марина Дрехарова — Изкуство</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #faf7f2;
+    color: #2b2620;
+  }
+  header {
+    text-align: center;
+    padding: 60px 20px 40px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+  header p {
+    margin-top: 10px;
+    color: #7a6f5f;
+    font-style: italic;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .painting {
+    background: #fff;
+    padding: 12px 12px 18px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+  .painting img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+  }
+  .painting h3 {
+    margin-top: 14px;
+    font-weight: normal;
+    font-size: 1.1rem;
+  }
+  .painting span {
+    color: #999;
+    font-size: 0.9rem;
+  }
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #999;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
 
+<header>
+  <h1>Марина Дрехарова</h1>
+  <p>Галерия с картини</p>
+</header>
+
+<div class="gallery" id="gallery"></div>
+
+<footer>&copy; 2026 Марина Дрехарова</footer>
+
+<script>
+  const paintings = [
+    { title: "Пример картина 1", file: "images/painting1.jpg", year: "2026" },
+    { title: "Пример картина 2", file: "images/painting2.jpg", year: "2026" }
+  ];
+
+  const gallery = document.getElementById('gallery');
+  paintings.forEach(p => {
+    gallery.innerHTML += `
+      <div class="painting">
+        <img src="${p.file}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <span>${p.year}</span>
+      </div>`;
+  });
+</script>
+
+</body>
+</html>

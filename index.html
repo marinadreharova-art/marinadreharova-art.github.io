@@ -3,92 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Марина Дрехарова — Изкуство</title>
+<title>Марина Дрехарова — лична галерия</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: #faf7f2;
-    color: #2b2620;
-  }
-  header {
-    text-align: center;
-    padding: 60px 20px 40px;
-  }
-  header h1 {
-    font-size: 2.2rem;
-    font-weight: normal;
-    letter-spacing: 1px;
-  }
-  header p {
-    margin-top: 10px;
-    color: #7a6f5f;
-    font-style: italic;
-  }
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
-    padding: 20px 40px 80px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .painting {
-    background: #fff;
-    padding: 12px 12px 18px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    text-align: center;
-  }
-  .painting img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-  }
-  .painting h3 {
-    margin-top: 14px;
-    font-weight: normal;
-    font-size: 1.1rem;
-  }
-  .painting span {
-    color: #999;
-    font-size: 0.9rem;
-  }
-  footer {
-    text-align: center;
-    padding: 30px;
-    color: #999;
-    font-size: 0.9rem;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #faf7f2; color: #2b2620; }
+  header { text-align: center; padding: 40px 20px 10px; }
+  header h1 { font-size: 2rem; font-weight: normal; letter-spacing: 1px; }
+  header p { color: #7a6f5f; font-style: italic; margin-top: 4px; }
+  nav { text-align: center; padding: 16px 0 30px; border-bottom: 1px solid #e5ded2; }
+  nav a { color: #7a6f5f; text-decoration: none; margin: 0 14px; font-size: 1rem; }
+  nav a:hover { text-decoration: underline; }
+  .hero { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; max-width: 900px; margin: 0 auto; padding: 50px 30px; }
+  .hero img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .hero .text { flex: 1; min-width: 260px; }
+  .hero h2 { font-weight: normal; font-size: 1.5rem; margin-bottom: 14px; }
+  .hero p { line-height: 1.7; color: #4a453d; }
+  .section-title { text-align: center; font-weight: normal; font-size: 1.4rem; padding: 30px 0 10px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; padding: 20px 40px; max-width: 1100px; margin: 0 auto; }
+  .painting { background: #fff; padding: 12px 12px 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); text-align: center; }
+  .painting img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .painting h3 { margin-top: 14px; font-weight: normal; font-size: 1.05rem; }
+  .painting .meta { color: #999; font-size: 0.85rem; margin-top: 4px; }
+  .painting .price { color: #a0522d; font-size: 0.9rem; margin-top: 6px; }
+  .more { text-align: center; padding: 20px 0 60px; }
+  .more a { color: #7a6f5f; font-style: italic; text-decoration: underline; }
+  footer { text-align: center; padding: 30px; color: #999; font-size: 0.85rem; border-top: 1px solid #e5ded2; }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Марина Дрехарова</h1>
-  <p>Галерия с картини</p>
+  <h1>Марина Дрехарова</h1>
+  <p>лична галерия</p>
 </header>
 
+<nav>
+  <a href="index.html">Начало</a>
+  <a href="gallery.html">Картини</a>
+  <a href="biography.html">Биография</a>
+  <a href="contacts.html">Контакти</a>
+</nav>
+
+<section class="hero">
+  <img src="IMG_3110.jpeg" alt="Марина Дрехарова">
+  <div class="text">
+    <h2>За мен</h2>
+    <p>Тук пиши кратко за себе си — откога рисуваш, какъв стил предпочиташ, какво те вдъхновява.</p>
+  </div>
+</section>
+
+<h2 class="section-title">Моите картини</h2>
 <div class="gallery" id="gallery"></div>
+<div class="more"><a href="gallery.html">Виж всички картини →</a></div>
 
 <footer>&copy; 2026 Марина Дрехарова</footer>
 
 <script>
-  const paintings = [
-    { title: "Натюрморт", file: "IMG_3110.jpeg", year: "2026" },
-    { title: "Пример картина 2", file: "images/painting2.jpg", year: "2026" }
-  ];
-
-  const gallery = document.getElementById('gallery');
-  paintings.forEach(p => {
-    gallery.innerHTML += `
-      <div class="painting">
-        <img src="${p.file}" alt="${p.title}">
-        <h3>${p.title}</h3>
-        <span>${p.year}</span>
-      </div>`;
-  });
+  const paintings = [
+    { title: "Моята картина", file: "IMG_3110.jpeg", medium: "Акварел", price: "50 лв" }
+  ];
+  const gallery = document.getElementById('gallery');
+  paintings.forEach(p => {
+    gallery.innerHTML += `
+      <div class="painting">
+        <img src="${p.file}" alt="${p.title}">
+        <h3>${p.title}</h3>
+        <div class="meta">${p.medium}</div>
+        <div class="price">${p.price}</div>
+      </div>`;
+  });
 </script>
 
 </body>
 </html>
+
